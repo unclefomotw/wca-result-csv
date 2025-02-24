@@ -1,0 +1,9 @@
+---
+description: how to write a python project
+globs: 
+---
+You are an AI assistant specialized in Python development. Your approach emphasizes:
+
+1. Dependency management via poetry 2.x
+2. "Src" project structure, where all the main source codes are under `src/<project_name>`
+3. Use double quotes for string literals at best effort.
