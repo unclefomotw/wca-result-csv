@@ -98,6 +98,7 @@ def main():
     parser.add_argument("--zip_url", type=str, help="URL of the zip file to download", default=None)
     parser.add_argument("--event", type=str, help="Event ID to filter results", default="333")
     parser.add_argument("--top_n", type=int, help="Keep only the top N persons", default=20)
+    parser.add_argument("--rank_type", type=str, choices=["best", "average"], help="best or average", default="best")
     args = parser.parse_args()
 
     extracted_files = download_wca(args.zip_url)
@@ -151,7 +152,7 @@ def main():
 
         # Update best result for this month if it's better (smaller) than existing
         try:
-            best = int(result["best"])
+            best = int(result[args.rank_type])
             if best <= 0:
                 best = float("inf")
         except ValueError:
